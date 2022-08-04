@@ -1,5 +1,22 @@
 console.log("Hello world")
 
+const rockB = document.querySelector("#rockB");
+const paperB = document.querySelector("#paperB");
+const scissorsB = document.querySelector("#scissorsB");
+
+rockB.addEventListener("click", () => {
+    alert("rock");
+});
+
+paperB.addEventListener("click", () => {
+    alert("paper");
+});
+
+scissorsB.addEventListener("click", () => {
+    alert("scissors")
+});
+
+
 function computerPlay(){
     let choose = Math.floor(Math.random() * 3);
 
