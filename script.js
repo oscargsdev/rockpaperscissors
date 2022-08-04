@@ -13,6 +13,9 @@ function computerPlay(){
     }
 }
 
+//yeah
+//double yeah
+
 function playerPlay(){
     let choose = prompt("Choose your weapon", "rock");
     choose = choose.toLowerCase();
