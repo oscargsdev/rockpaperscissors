@@ -5,15 +5,17 @@ const paperB = document.querySelector("#paperB");
 const scissorsB = document.querySelector("#scissorsB");
 
 rockB.addEventListener("click", () => {
-    alert("rock");
+    console.log(playRound("rock", computerPlay()));
+    
 });
 
 paperB.addEventListener("click", () => {
-    alert("paper");
+    console.log(playRound("paper", computerPlay()));
+    
 });
 
 scissorsB.addEventListener("click", () => {
-    alert("scissors")
+    console.log(playRound("scissors", computerPlay()));
 });
 
 
@@ -33,11 +35,7 @@ function computerPlay(){
 //yeah
 //double yeah
 
-function playerPlay(){
-    let choose = prompt("Choose your weapon", "rock");
-    choose = choose.toLowerCase();
-    return choose;
-}
+
 
 
 function playRound(player, computer){
@@ -78,12 +76,12 @@ function playRound(player, computer){
 function game(){
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 0; i < 5; i++){
-        let round = playRound(playerPlay(), computerPlay())
+    
+    let round = playRound(playerPlay(), computerPlay())
 
-        if (round == "Player wins!") playerScore++;
-        if (round == "Computer wins!") computerScore++;
-    }
+    if (round == "Player wins!") playerScore++;
+    if (round == "Computer wins!") computerScore++;
+   
 
     console.log("Player score: " + playerScore);
     console.log("Computer score: " + computerScore);
@@ -93,4 +91,4 @@ function game(){
     else console.log("Player wins game!")
 }
 
-game()
+// game()
