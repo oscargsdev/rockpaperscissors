@@ -1,22 +1,38 @@
-console.log("Hello world")
+// VARS AND CONST
+
+let playerScore = 0;
+let computerScore = 0;
 
 const rockB = document.querySelector("#rockB");
 const paperB = document.querySelector("#paperB");
 const scissorsB = document.querySelector("#scissorsB");
 
+const roundR = document.querySelector("#roundR");
+
+const playerScoreDiv = document.querySelector("#playerScore");
+const computerScoreDiv = document.querySelector("#computerScore");
+
+// EVENT LISTENERS
+
 rockB.addEventListener("click", () => {
-    console.log(playRound("rock", computerPlay()));
+    let roundResult = playRound("rock", computerPlay());
+    scoreUpdate(roundResult);
     
 });
 
 paperB.addEventListener("click", () => {
-    console.log(playRound("paper", computerPlay()));
+    let roundResult = playRound("paper", computerPlay());
+    scoreUpdate(roundResult);
     
 });
 
 scissorsB.addEventListener("click", () => {
-    console.log(playRound("scissors", computerPlay()));
+    let roundResult = playRound("scissors", computerPlay());
+    scoreUpdate(roundResult);
 });
+
+
+// FUNCS
 
 
 function computerPlay(){
@@ -32,16 +48,12 @@ function computerPlay(){
     }
 }
 
-//yeah
-//double yeah
-
-
-
 
 function playRound(player, computer){
     if (player == "rock"){
         if (computer == "Paper"){
             return "Computer wins!"
+
         }
         else if (computer == "Scissors"){
             return "Player wins!"
@@ -72,23 +84,24 @@ function playRound(player, computer){
 
 }
 
-
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-    
-    let round = playRound(playerPlay(), computerPlay())
-
+function scoreUpdate(round){
     if (round == "Player wins!") playerScore++;
     if (round == "Computer wins!") computerScore++;
-   
 
-    console.log("Player score: " + playerScore);
-    console.log("Computer score: " + computerScore);
+    roundR.textContent = round;
+    playerScoreDiv.textContent = playerScore;
+    computerScoreDiv.textContent = computerScore;
 
-    if (computerScore == playerScore) console.log("Tie game!")
-    else if (computerScore > playerScore) console.log("Computer wins game!")
-    else console.log("Player wins game!")
+    whoWins();
 }
 
-// game()
+function whoWins(){
+    if (playerScore == 5){
+        alert("Player wins game!");
+    }
+
+    if (computerScore == 5){
+        alert("Computer wins game!");
+    }
+}
+
